@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/caixukun112/js.git ~/js
+          git clone https://github.com/AmyTelecom/YangMao2.git ~/YangMao2
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
@@ -22,7 +22,7 @@ jobs:
           npm install cron
           npm install request
           curl ipinfo.io/json
-      - name: '【机场签到】'
+      - name: '【91.92.93.97.98】'
         run: |
           cd ~/YangMao2/YangMao   
           node 91.92.93.97.98.js
