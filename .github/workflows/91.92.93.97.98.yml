@@ -1,0 +1,31 @@
+name: 91.92.93.97.98
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2-22 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/caixukun112/js.git ~/js
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          cd ~/YangMao2
+          npm install
+          npm install cron
+          npm install request
+          curl ipinfo.io/json
+      - name: '【机场签到】'
+        run: |
+          cd ~/YangMao2/YangMao   
+          node 91.92.93.97.98.js
+        env:
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
